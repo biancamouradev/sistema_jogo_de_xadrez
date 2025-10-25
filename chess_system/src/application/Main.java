@@ -21,6 +21,10 @@ public class Main {
                 String sourceInput = JOptionPane.showInputDialog("Qual a posição de origem (Ex: e2):");
                 ChessPosition source = new ChessPosition(sourceInput.charAt(0), Integer.parseInt(sourceInput.substring(1)));
 
+                boolean[][] possibleMoves = chessMatch.possibleMoves(source);
+                UI.printBoard(chessMatch.getPieces(), possibleMoves);
+
+
                 // Lê posição de destino
                 String targetInput = JOptionPane.showInputDialog("Qual a posição de destino (Ex: e4):");
                 ChessPosition target = new ChessPosition(targetInput.charAt(0), Integer.parseInt(targetInput.substring(1)));
