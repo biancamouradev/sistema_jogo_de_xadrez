@@ -52,6 +52,19 @@ public class Board {
         piece.position = position; //A posicao da peca é acessivel diretamente pois esta no mesmo pacote
     }
 
+    public Piece remocePiece(Position position) {
+        if (!positionExists(position)) {
+            throw new BoardException("Posição não existe no tabuleiro");
+        }
+        if (piece(position) == null){
+            return null;
+        }
+        Piece aux = piece(position);
+        aux.position = null;
+        pieces[position.getRow()][position.getColumm()] = null;
+        return aux;
+    }
+
     //Metodo auxiliar para ve se uma posicao existe
     //Boolean retorna verdadeiro ou falso
     private boolean positionExists(int row, int column){

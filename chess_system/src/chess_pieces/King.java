@@ -10,5 +10,9 @@ public class King extends ChessPiece {
     }
 
     //Sempre usa no toString, esta subescrevendo
+    @Override
+    public String toString() {
+        return "K";
+    }
 
 }

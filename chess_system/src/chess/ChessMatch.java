@@ -1,8 +1,11 @@
 package chess;
 
 import boardgame.Board;
+import boardgame.Piece;
 import boardgame.Position;
+import chess_pieces.King;
 import chess_pieces.Rook;
+
 
 //Regras do jogo de xadrez
 public class ChessMatch {
@@ -24,13 +27,44 @@ public class ChessMatch {
         return mat;
     }
 
+    public ChessPiece performChessMove(ChessPosition sourcePosition, ChessPosition targetPosition) {
+        Position source = sourcePosition.toPosition();
+        Position target = targetPosition.toPosition();
+        validadeSourcePosition(source);
+        Piece movedPiece = makeMove(source, target); //Faz o movimento
+        return (ChessPiece)movedPiece;
+    }
+
+    private void validadeSourcePosition(Position position){
+        if (!board.thereIsAPiece(position)){
+            throw new ChessException("Não existe peça na posição de origem");
+        }
+    }
+
+    private Piece makeMove(Position source, Position target){
+        Piece p = board.remocePiece(source);
+        board.placePiece(p, target);
+        return p;
+    }
+
     private void placeNewPiece(char column, int row, ChessPiece piece){
         board.placePiece(piece, new ChessPosition(column, row).toPosition());
     }
     //Esse metodo é responsável por iniciar a partida de xadrez
     private void initialSetup() {
-        placeNewPiece('h', 6, new Rook(board, Color.WHITE));
+        placeNewPiece('c', 1, new Rook(board, Color.WHITE));
+        placeNewPiece('c', 2, new Rook(board, Color.WHITE));
+        placeNewPiece('d', 2, new Rook(board, Color.WHITE));
+        placeNewPiece('e', 2, new Rook(board, Color.WHITE));
+        placeNewPiece('e', 1, new Rook(board, Color.WHITE));
+        placeNewPiece('d', 1, new King(board, Color.WHITE));
 
+        placeNewPiece('c', 7, new Rook(board, Color.BLACK));
+        placeNewPiece('c', 8, new Rook(board, Color.BLACK));
+        placeNewPiece('d', 7, new Rook(board, Color.BLACK));
+        placeNewPiece('e', 7, new Rook(board, Color.BLACK));
+        placeNewPiece('e', 8, new Rook(board, Color.BLACK));
+        placeNewPiece('d', 8, new King(board, Color.BLACK));
     }
 
 }
