@@ -52,7 +52,6 @@ public class UI {
             for (int j=0; j< pieces.length; j++){
                 printPiece(pieces[i][j]);
             }
-            //Para fazer a quebra da primeira linha do tabuleiro
             System.out.println();
         }
         System.out.println("  a b c d e f g h");

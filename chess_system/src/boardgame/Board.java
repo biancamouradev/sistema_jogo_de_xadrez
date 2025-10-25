@@ -9,7 +9,7 @@ public class Board {
 
     public Board(int rows, int columns) {
         if (rows < 1 || columns < 1){
-            throw new BoardException("Error creating board: there must be at least 1 row and 1 column");
+            throw new BoardException("Erro ao criar o tabuleiro: Deve ter ao menos 1 linha e 1 coluna");
         }
 
         this.rows = rows;
@@ -30,7 +30,7 @@ public class Board {
     //Metodo para retornar uma peca
     public Piece piece(int row, int column){
         if (!positionExists(row, column)){
-            throw new BoardException("Position not on the board");
+            throw new BoardException("Posição não está no tabuleiro");
         }
         return pieces[row][column];
     }
@@ -38,7 +38,7 @@ public class Board {
     //Para retornar pela posicao
     public Piece piece(Position position){
         if (!positionExists(position)){
-            throw new BoardException("Position not on the board");
+            throw new BoardException("Posição não está no tabuleiro");
         }
         return pieces[position.getRow()][position.getColumm()];
     }
@@ -46,10 +46,10 @@ public class Board {
     //Metodo para colocar uma peca numa dada posicao
     public void placePiece(Piece piece, Position position) {
         if (thereIsAPiece(position)){
-            throw new BoardException("There ir already a piece on position" + position);
+            throw new BoardException("Já existe uma peça nessa posição" + position);
         }
         pieces[position.getRow()][position.getColumm()] = piece;
-        piece.position = position; //A posicao da peca é acessivel diretamente pois esta no mesmo pacote
+        piece.position = position;
     }
 
     public Piece remocePiece(Position position) {
@@ -65,8 +65,7 @@ public class Board {
         return aux;
     }
 
-    //Metodo auxiliar para ve se uma posicao existe
-    //Boolean retorna verdadeiro ou falso
+
     private boolean positionExists(int row, int column){
         return row >= 0 && row < rows && column >= 0 && column < columns;
     }
@@ -77,7 +76,7 @@ public class Board {
 
     public boolean thereIsAPiece(Position position){
         if (!positionExists(position)){
-            throw new BoardException("Position not on the board");
+            throw new BoardException("Posição não está no tabuleiro");
         }
         return piece(position) != null;
     }

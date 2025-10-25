@@ -5,7 +5,7 @@ public class Position {
     private int row;
     private int columm;
 
-    //Criar construtores para receber os argumentos
+
     public Position(int row, int columm) {
         this.row = row;
         this.columm = columm;
@@ -29,7 +29,7 @@ public class Position {
 
     //Subescreve
     @Override
-    //Criar um méttodo que retorna um texto
+
     public String toString() {
         return row + ", " + columm;
 

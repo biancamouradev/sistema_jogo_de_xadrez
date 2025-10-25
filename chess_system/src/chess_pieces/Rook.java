@@ -4,8 +4,7 @@ import boardgame.Board;
 import chess.ChessPiece;
 import chess.Color;
 
-//Subclasse de ChessPiece
-public class Rook extends ChessPiece {
+public abstract class Rook extends ChessPiece {
     public Rook(Board board, Color color) {
         super(board, color);
     }
