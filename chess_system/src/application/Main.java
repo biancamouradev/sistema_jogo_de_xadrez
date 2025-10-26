@@ -16,7 +16,7 @@ public class Main {
 
         while (true) {
             try{
-                UI.printBoard(chessMatch.getPieces());
+                UI.printMatch(chessMatch);
 
                 String sourceInput = JOptionPane.showInputDialog("Qual a posição de origem (Ex: e2):");
                 ChessPosition source = new ChessPosition(sourceInput.charAt(0), Integer.parseInt(sourceInput.substring(1)));

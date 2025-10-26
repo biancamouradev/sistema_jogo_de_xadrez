@@ -1,8 +1,8 @@
 package boardgame;
 
-//Exececao opcional de ser tratada
-
 import java.io.Serial;
+
+//Exececao opcional de ser tratada
 
 public class BoardException extends RuntimeException{
     @Serial
